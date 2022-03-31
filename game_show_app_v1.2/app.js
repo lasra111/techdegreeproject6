@@ -32,3 +32,10 @@ let getRandomPhraseAsArray = arr=> {
 let randomPhrase = phrases[randomNumber()];
 return randomPhrase;
 }
+
+// adds the letters of a string to the display
+let addPhraseToDisplay = arr=> {
+
+
+
+}
