@@ -6,6 +6,7 @@ let button = document.getElementsByClassName('btn__reset');
 let missed = 0;
 let start = document.getElementsByClassName('start');
 let overlay = document.getElementById('overlay')
+let randomNumber = Math.floor((Math.rand()*5)+1);
 let phrases = [
   'veni vidi vici',
   'what is the worst that can happen',
@@ -22,7 +23,11 @@ for(i=0; i<start.length; i++){
 }
 });
 
+// return a random phrase from the array
+let getRandomPhraseAsArray = arr=> {
 
+
+}
 
 
 
