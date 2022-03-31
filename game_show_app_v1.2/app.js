@@ -29,6 +29,6 @@ function randomNumber() {
 }
 // return a random phrase from the array
 let getRandomPhraseAsArray = arr=> {
-let randomPhrase = phrases[randomNumber()]);
+let randomPhrase = phrases[randomNumber()];
 return randomPhrase;
 }
