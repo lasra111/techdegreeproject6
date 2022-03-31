@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', ()=> {
+
 
 let qwerty = document.getElementById('qwerty');
 let phrase = document.getElementById('phrase');
@@ -6,7 +6,7 @@ let button = document.getElementsByClassName('btn__reset');
 let missed = 0;
 let start = document.getElementsByClassName('start');
 let overlay = document.getElementById('overlay')
-let randomNumber = Math.floor((Math.rand()*5)+1);
+
 let phrases = [
   'veni vidi vici',
   'what is the worst that can happen',
@@ -23,51 +23,12 @@ for(i=0; i<start.length; i++){
 }
 });
 
+function randomNumber() {
+  let getRand = Math.floor((Math.random()*5));
+  return getRand;
+}
 // return a random phrase from the array
 let getRandomPhraseAsArray = arr=> {
-
-
+let randomPhrase = phrases[randomNumber()]);
+return randomPhrase;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
