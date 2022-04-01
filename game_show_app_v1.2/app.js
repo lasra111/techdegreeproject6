@@ -32,20 +32,23 @@ function getRandomPhraseAsArray(arr){
 let randomPhrase = arr[randomNumber()];
 return randomPhrase;
 }
-let phraseSplit= getRandomPhraseAsArray(phrases).split(' ')
+let phraseRand= getRandomPhraseAsArray(phrases)
+  let li = document.createElement('li');
 // adds the letters of a string to the display
 function addPhraseToDisplay(phraseSplit){
-  for (i=0; i<phraseSplit.length; i++){
+  for (i=0; i<phraseRand.length; i++){
+    let phraseSplit=phraseRand.split('')
     let li = document.createElement('li');
     let ul = document.querySelector('#phrase ul');
-    li.appendChild(phraseSplit[i]);
-    ul.appendChild(li);
-    if (phraseSplit[i] ===/[a-z]/) {
-      li.className='letter';
-    }
-return ul;
-  }
+    li.textContent = phraseSplit[i];
 
+
+
+    ul.appendChild(li);
+
+
+  }
+return li;
 }
 let phraseArray = getRandomPhraseAsArray(phrases);
 
