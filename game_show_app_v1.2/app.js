@@ -54,6 +54,33 @@ return li;
 addPhraseToDisplay(phraseRand);
 
 // check if a letter is in the phrase
-function checkLetter() {
 
+
+qwerty.addEventListener('click', (e)=> {
+let guess = e.target;
+  e.target.className+='chosen';
+let results = checkLetter(guess);
+  if(results===null){
+    missed++;
+    let div = document.getElementById('scoreboard')
+    let ol = div.children;
+    ol.removeChild('li');
+  }
+});
+
+function checkLetter(guess) {
+let checkLetter = document.querySelectorAll('li')
+let match = null;
+for(i=0; i<checkLetter.length; i++) {
+  if(checkLetter[i].textContent===guess.textContent) {
+      guess.className+='show';
+      match = guess.textContent;
+  // if(e.target.className='letter'){
+  //   guess[i].className+='show';
+  //
+  // }
+}
+return match;
+
+}
 }
