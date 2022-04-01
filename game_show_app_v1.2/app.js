@@ -52,3 +52,8 @@ function addPhraseToDisplay(phraseSplit){
 return li;
 }
 addPhraseToDisplay(phraseRand);
+
+// check if a letter is in the phrase
+function checkLetter() {
+
+}
