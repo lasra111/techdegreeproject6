@@ -41,15 +41,14 @@ function addPhraseToDisplay(phraseSplit){
     let li = document.createElement('li');
     let ul = document.querySelector('#phrase ul');
     li.textContent = phraseSplit[i];
-
-
-
     ul.appendChild(li);
-
+    if (li.textContent===' ') {
+      li.className='space';
+    }else {
+      li.className='letter';
+    }
 
   }
 return li;
 }
-let phraseArray = getRandomPhraseAsArray(phrases);
-
-console.log(addPhraseToDisplay(phraseArray));
+addPhraseToDisplay(phraseRand);
