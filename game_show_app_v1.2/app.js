@@ -28,14 +28,25 @@ function randomNumber() {
   return getRand;
 }
 // return a random phrase from the array
-let getRandomPhraseAsArray = arr=> {
-let randomPhrase = phrases[randomNumber()];
+function getRandomPhraseAsArray(arr){
+let randomPhrase = arr[randomNumber()];
 return randomPhrase;
 }
-
+let phraseSplit= getRandomPhraseAsArray(phrases).split(' ')
 // adds the letters of a string to the display
-let addPhraseToDisplay = arr=> {
-
-
+function addPhraseToDisplay(phraseSplit){
+  for (i=0; i<phraseSplit.length; i++){
+    let li = document.createElement('li');
+    let ul = document.querySelector('#phrase ul');
+    li.appendChild(phraseSplit[i]);
+    ul.appendChild(li);
+    if (phraseSplit[i] ===/[a-z]/) {
+      li.className='letter';
+    }
+return ul;
+  }
 
 }
+let phraseArray = getRandomPhraseAsArray(phrases);
+
+console.log(addPhraseToDisplay(phraseArray));
