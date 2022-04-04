@@ -63,6 +63,8 @@ let letterFound = checkLetter(guess);
 e.target.className+='chosen';
   if(letterFound===null){
     missed++;
+    removeHeart();
+
 
 
   }
@@ -74,7 +76,7 @@ let match = null;
 for(i=0; i<checkLetter.length; i++) {
   if(checkLetter[i].textContent===guess.textContent) {
       checkLetter[i].className+='show';
-      match = guess.textContent;
+      match = guess[i].textContent;
   // if(e.target.className='letter'){
   //   guess[i].className+='show';
   //
@@ -83,4 +85,8 @@ for(i=0; i<checkLetter.length; i++) {
 return match;
 
 }
+}
+function removeHeart() {
+  let div = document.getElementById('ol');
+  div.removeChild(div.childNodes[0]);
 }
