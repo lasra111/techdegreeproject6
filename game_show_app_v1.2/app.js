@@ -58,17 +58,18 @@ addPhraseToDisplay(phraseRand);
 
 qwerty.addEventListener('click', (e)=> {
 let guess = e.target;
-  e.target.className+='chosen';
-let results = checkLetter(guess);
-  if(results===null){
+
+let letterFound = checkLetter(guess);
+e.target.className+='chosen';
+  if(letterFound===null){
     missed++;
 
-    
+
   }
 });
 
 function checkLetter(guess) {
-let checkLetter = document.querySelectorAll('li')
+let checkLetter = document.getElementsByClassName('letter')
 let match = null;
 for(i=0; i<checkLetter.length; i++) {
   if(checkLetter[i].textContent===guess.textContent) {
