@@ -6,7 +6,8 @@ let button = document.getElementsByClassName('btn__reset');
 let missed = 0;
 let start = document.getElementsByClassName('start');
 let overlay = document.getElementById('overlay')
-
+let letter = document.getElementsByClassName('letter');
+let show = document.getElementsByClassName('show');
 let phrases = [
   'veni vidi vici',
   'what is the worst that can happen',
@@ -17,7 +18,7 @@ let phrases = [
 
 overlay.addEventListener('click', (e)=> {
   if(e.target.className==='btn__reset'){
-for(i=0; i<start.length; i++){
+for(let i=0; i<start.length; i++){
   start[i].style.display='none';
 }
 }
@@ -36,7 +37,7 @@ let phraseRand= getRandomPhraseAsArray(phrases)
   let li = document.createElement('li');
 // adds the letters of a string to the display
 function addPhraseToDisplay(phraseSplit){
-  for (i=0; i<phraseRand.length; i++){
+  for (let i=0; i<phraseRand.length; i++){
     let phraseSplit=phraseRand.split('')
     let li = document.createElement('li');
     let ul = document.querySelector('#phrase ul');
@@ -57,6 +58,7 @@ addPhraseToDisplay(phraseRand);
 
 
 qwerty.addEventListener('click', (e)=> {
+if (e.target.tagName === "BUTTON") {
 let guess = e.target;
 
 let letterFound = checkLetter(guess);
@@ -64,27 +66,36 @@ e.target.className+='chosen';
   if(letterFound===null){
     missed++;
     removeHeart();
-
-
-
   }
+  if(letter.length===show.length){
+    overlay.style.display='flex';
+    overlay.className='win';
+    overlay.textContent='Congratulations! You won!';
+}
+if(missed>=5){
+  overlay.style.display='flex';
+  overlay.className='lose'
+  overlay.textContent='You lost!';
+}
+}
 });
 
 function checkLetter(guess) {
 let checkLetter = document.getElementsByClassName('letter')
 let match = null;
-for(i=0; i<checkLetter.length; i++) {
-  if(checkLetter[i].textContent===guess.textContent) {
+for(let i=0; i<checkLetter.length; i++) {
+  if(checkLetter[i].textContent.toLowerCase()===guess.textContent.toLowerCase()) {
       checkLetter[i].className+='show';
-      match = guess[i].textContent;
+      match = guess.textContent;
   // if(e.target.className='letter'){
   //   guess[i].className+='show';
   //
   // }
 }
-return match;
+
 
 }
+return match;
 }
 function removeHeart() {
   let div = document.getElementById('ol');
