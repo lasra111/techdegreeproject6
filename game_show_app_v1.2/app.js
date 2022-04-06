@@ -60,9 +60,9 @@ addPhraseToDisplay(phraseRand);
 qwerty.addEventListener('click', (e)=> {
 if (e.target.tagName === "BUTTON") {
 let guess = e.target;
-
+guess.disabled='true';
 let letterFound = checkLetter(guess);
-e.target.className+='chosen';
+e.target.className='chosen';
   if(letterFound===null){
     missed++;
     removeHeart();
@@ -85,7 +85,7 @@ let checkLetter = document.getElementsByClassName('letter')
 let match = null;
 for(let i=0; i<checkLetter.length; i++) {
   if(checkLetter[i].textContent.toLowerCase()===guess.textContent.toLowerCase()) {
-      checkLetter[i].className+='show';
+      checkLetter[i].classList.add('show');
       match = guess.textContent;
   // if(e.target.className='letter'){
   //   guess[i].className+='show';
