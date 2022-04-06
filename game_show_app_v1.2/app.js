@@ -65,18 +65,26 @@ let letterFound = checkLetter(guess);
 e.target.className='chosen';
   if(letterFound===null){
     missed++;
-    removeHeart();
-  }
+    }
+    if(missed===1){
+      replaceHeart1()
+    }else if(missed===2){
+      replaceHeart2()
+    }else if(missed===3){
+      replaceHeart3()
+    }else if(missed===4){
+      replaceHeart4()
+    }else if(missed>=5){
+      overlay.style.display='flex';
+      overlay.className='lose'
+      overlay.textContent='You lost!';
+    }
   if(letter.length===show.length){
     overlay.style.display='flex';
     overlay.className='win';
     overlay.textContent='Congratulations! You won!';
 }
-if(missed>=5){
-  overlay.style.display='flex';
-  overlay.className='lose'
-  overlay.textContent='You lost!';
-}
+
 }
 });
 
@@ -97,7 +105,23 @@ for(let i=0; i<checkLetter.length; i++) {
 }
 return match;
 }
-function removeHeart() {
-  let div = document.getElementById('ol');
-  div.removeChild(div.childNodes[0]);
+function replaceHeart1() {
+  let img1 = document.getElementById('img1');
+  img1.src="images/lostHeart.png"
+}
+function replaceHeart2() {
+  let img2 = document.getElementById('img2');
+  img2.src="images/lostHeart.png"
+}
+function replaceHeart3() {
+  let img3 = document.getElementById('img3');
+  img3.src="images/lostHeart.png"
+}
+function replaceHeart4() {
+  let img4 = document.getElementById('img4');
+  img4.src="images/lostHeart.png"
+}
+function replaceHeart5() {
+  let img5 = document.getElementById('img5');
+  img5.src="images/lostHeart.png"
 }
